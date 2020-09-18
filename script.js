@@ -83,19 +83,20 @@ $(document).ready(function() {
 				
 
 				// Build the startTime paramaters for ISO 8601 format
-				var startGetYear = startdateObj.getFullYear();
-				var startGetMonth = startdateObj.getMonth() + 1;
-				var startGetDay = startdateObj.getDate();
-				var startGetHours = startdateObj.getHours();
-				var startGetMinutes = startdateObj.getMinutes();
+				var startGetYear = startdateObj.getUTCFullYear();
+				var startGetMonth = startdateObj.getUTCMonth() + 1;
+				var startGetDay = startdateObj.getUTCDate();
+				// var startGetHours = startdateObj.getHours();
+				var startGetHours = startdateObj.getUTCHours();
+				var startGetMinutes = startdateObj.getUTCMinutes();
 
 
 				// Build the endTime paramater for ISO 8601 format
-				var endGetYear = enddateObj.getFullYear();
-				var endGetMonth = enddateObj.getMonth() + 1;
-				var endGetDay = enddateObj.getDate();
-				var endGetHours = enddateObj.getHours();
-				var endGetMinutes = enddateObj.getMinutes();
+				var endGetYear = enddateObj.getUTCFullYear();
+				var endGetMonth = enddateObj.getUTCMonth() + 1;
+				var endGetDay = enddateObj.getUTCDate();
+				var endGetHours = enddateObj.getUTCHours();
+				var endGetMinutes = enddateObj.getUTCMinutes();
 
 	
 
@@ -125,6 +126,8 @@ $(document).ready(function() {
 					
 					console.log("SSC API Success");
 					console.log(result2);
+
+
 
 				}
 
