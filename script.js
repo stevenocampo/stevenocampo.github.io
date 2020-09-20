@@ -86,7 +86,6 @@ $(document).ready(function() {
 				var startGetYear = startdateObj.getUTCFullYear();
 				var startGetMonth = startdateObj.getUTCMonth() + 1;
 				var startGetDay = startdateObj.getUTCDate();
-				// var startGetHours = startdateObj.getHours();
 				var startGetHours = startdateObj.getUTCHours();
 				var startGetMinutes = startdateObj.getUTCMinutes();
 
@@ -122,11 +121,42 @@ $(document).ready(function() {
 			$.ajax({
 				// url: "https://sscweb.gsfc.nasa.gov/WS/sscr/2/locations/iss/20200913T223000Z,20200913T224000Z/geo",
 				url: "https://sscweb.gsfc.nasa.gov/WS/sscr/2/locations/iss" + startUrlParam + endUrlParam + "/geo",
+				dataType: "xml",
 				success: function(result2) {
 					
 					console.log("SSC API Success");
 					console.log(result2);
 
+
+					var latitudeArray = [];
+					var longitudeArray = [];
+					// console.log(testArray);
+					// console.log(testArray[2]);
+
+
+					$(result2).find("Latitude").each(function(){
+						
+						// console.log("hello");
+						latitudeArray.push(this);
+
+					});
+
+					console.log(latitudeArray);
+					console.log(latitudeArray[0]);
+
+
+					$(result2).find("Longitude").each(function(){
+						
+						// console.log("hello");
+						longitudeArray.push(this);
+
+					});
+
+					console.log(longitudeArray);
+					console.log(longitudeArray[0]);
+
+					// Example Marker
+					var marker = L.marker([40.740477760389545, -73.9896583557129]).addTo(mymap);
 
 
 				}
