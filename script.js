@@ -128,36 +128,62 @@ $(document).ready(function() {
 					console.log(result2);
 
 
-					var latitudeArray = [];
-					var longitudeArray = [];
-					// console.log(testArray);
-					// console.log(testArray[2]);
+					// var testArray = [];
 
 
-					$(result2).find("Latitude").each(function(){
+					// var latArray = $(result2).find("Latitude")[0].textContent;
+					// var latValue = parseFloat(latArray);
+
+
+					// Iterate through each pair of Lat/Long values and generate Marker on the map to show trajectory
+					for (var i = 0; i < $(result2).find("Latitude").length; i++) {
+						console.log("test for loop");
+
+						// Empty array to hold one pair of Lat/Long values. This will be set to an empty array on each iteration
+						var latlongPair = [];
+
 						
-						// console.log("hello");
-						latitudeArray.push(this);
 
-					});
+						// Find Latitude[i] value and .push() to latlongPair
+						// Note: The .textContent returned is a string; parseFloat() will convert into a numeric value that can be used for Marking the map
+						var latString = $(result2).find("Latitude")[i].textContent;
+						var latValue = parseFloat(latString);
+						latlongPair.push(latValue);
 
-					console.log(latitudeArray);
-					console.log(latitudeArray[0]);
 
 
-					$(result2).find("Longitude").each(function(){
-						
-						// console.log("hello");
-						longitudeArray.push(this);
+						// Find Longitude[i] value and .push to latlongPair
+						// Note: The .textContent returned is a string; parseFloat() will convert into a numeric value that can be used for Marking the map
+						var longString = $(result2).find("Longitude")[i].textContent;
+						var longValue = parseFloat(longString);
+						// var longValue = -74.000;
 
-					});
+						// The SSC API returns Longitude values in degrees from 0 to 360 degrees. The Leaflet.js API takes Longitude values from -180 to 180 degrees. This function converts the value accordingly.
+						if (longValue > 180) {
+							longValue = longValue - 360;
+						}
 
-					console.log(longitudeArray);
-					console.log(longitudeArray[0]);
+						latlongPair.push(longValue);
+
+
+
+						console.log(latlongPair);
+
+
+						// L.Marker adds a Marker to the map display
+						var marker = L.marker(latlongPair).addTo(mymap);
+					}
+
 
 					// Example Marker
-					var marker = L.marker([40.740477760389545, -73.9896583557129]).addTo(mymap);
+					// var marker = L.marker([40.740477760389545, -73.9896583557129]).addTo(mymap);
 
+
+					// Testing placing lat/long pair in array and passing into L.marker function
+					// var testingArrayII = [40, -73];
+					// console.log(testingArrayII);
+
+					// var marker = L.marker(testingArrayII).addTo(mymap);
 
 				}
 
