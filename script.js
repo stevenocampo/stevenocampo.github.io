@@ -6,6 +6,7 @@ $(document).ready(function() {
     // Leaflet.js: "L.map" initializes a map object. The map's center coordinates and zoom setting are configured
     var mymap = L.map('mapid').setView([40.756, -73.986], 13);
 
+
     // Leaflet.js: "L.tileLayer" loads and displays the layer on the map
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
 	    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -163,7 +164,7 @@ $(document).ready(function() {
 
 					// Iterate through each pair of Lat/Long values and generate Marker on the map to show trajectory
 					for (var i = 0; i < $(result2).find("Latitude").length; i++) {
-						console.log("test for loop");
+						// console.log("test for loop");
 
 						// Empty array to hold one pair of Lat/Long values. This will be set to an empty array on each iteration
 						var latlongPair = [];
@@ -201,15 +202,12 @@ $(document).ready(function() {
 					}
 
 
+
+
+
 					// Example Marker
 					// var marker = L.marker([40.740477760389545, -73.9896583557129]).addTo(mymap);
 
-
-					// Testing placing lat/long pair in array and passing into L.marker function
-					// var testingArrayII = [40, -73];
-					// console.log(testingArrayII);
-
-					// var marker = L.marker(testingArrayII).addTo(mymap);
 
 				}
 
