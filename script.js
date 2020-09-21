@@ -57,28 +57,41 @@ $(document).ready(function() {
 			success: function(result) {
 				console.log("N2YO success");
 				console.log(result);
-				console.log(result.passes[0].startUTC);
+
 
 
 
 				// Now that the next visual pass has been requested. The next goal is to make a request to the SSC NASA API for coordinate data of the ISS over time to plot on the map
 
-				// Store the startUTC time of the next visual pass for the ISS depending on the selected coordinates
+				// Store the startUTC & endUTC times of the next visual pass for the ISS depending on the selected coordinates
 				var startUnix = result.passes[0].startUTC;
 				console.log(startUnix);
 
 
+				var endUnix = result.passes[0].endUTC;
+				console.log(endUnix);
 
 
 				// Context: I'll now be building the startTime & EndTime parameters for the SSC API Request, which will return the coordinate data of the ISS over the time range.
 
 				// Subtract 5 minutes from the startUTC time. NOTE: JS works in milliseconds so first I have to multiply by 1000ms and then subtract 5 minutes
-				startdateObj = new Date(startUnix * 1000 - 300000);
-				console.log(startdateObj);				
+				// startdateObj = new Date(startUnix * 1000 - 300000);
+				// console.log(startdateObj);
+
+				// Store the startTime in a Date() object. NOTE: JS works in milliseconds so first I have to multiply by 1000ms and then subtract 5 minutes
+				startdateObj = new Date(startUnix * 1000);
+				console.log(startdateObj);
+
+
 
 				// Add 5 minutes to the startUTC time. NOTE: JS works in milliseconds so first I have to multiply by 1000ms and then add 5 minutes
-				enddateObj = new Date(startUnix * 1000 + 300000);
+				// enddateObj = new Date(startUnix * 1000 + 300000);
+				// console.log(enddateObj);
+
+				enddateObj = new Date(endUnix * 1000);
 				console.log(enddateObj);
+
+
 
 				
 
