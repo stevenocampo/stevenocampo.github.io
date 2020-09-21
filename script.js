@@ -75,19 +75,10 @@ $(document).ready(function() {
 
 				// Context: I'll now be building the startTime & EndTime parameters for the SSC API Request, which will return the coordinate data of the ISS over the time range.
 
-				// Subtract 5 minutes from the startUTC time. NOTE: JS works in milliseconds so first I have to multiply by 1000ms and then subtract 5 minutes
-				// startdateObj = new Date(startUnix * 1000 - 300000);
-				// console.log(startdateObj);
-
-				// Store the startTime in a Date() object. NOTE: JS works in milliseconds so first I have to multiply by 1000ms and then subtract 5 minutes
+				// Store the startTime in a Date() object. NOTE: JS works in milliseconds so first I have to multiply by 1000ms
 				startdateObj = new Date(startUnix * 1000);
 				console.log(startdateObj);
 
-
-
-				// Add 5 minutes to the startUTC time. NOTE: JS works in milliseconds so first I have to multiply by 1000ms and then add 5 minutes
-				// enddateObj = new Date(startUnix * 1000 + 300000);
-				// console.log(enddateObj);
 
 				enddateObj = new Date(endUnix * 1000);
 				console.log(enddateObj);
@@ -155,11 +146,6 @@ $(document).ready(function() {
 					console.log(result2);
 
 
-					// var testArray = [];
-
-
-					// var latArray = $(result2).find("Latitude")[0].textContent;
-					// var latValue = parseFloat(latArray);
 
 
 					// Iterate through each pair of Lat/Long values and generate Marker on the map to show trajectory
