@@ -21,12 +21,54 @@
 
 </head>
 <body>
-	<h1>Hello World</h1>
+	<h1>International Space Station Tracker</h1>
 
 	<!-- LEAFLET DIV -->
 	 <div id="mapid"></div>
 
+	 <p>Instructions: Click on the map to select the observer's location. Then click the button below to see the next ISS Sighting trajectory, and details for the observer's viewing.</p>
+
 	 <button id="getSighting" type="button">Get Next ISS Sighting!</button>
+
+	 <h2>Results Table</h2>
+	 <table>
+	 	<tr>
+	 		<th>Field</th>
+	 		<th>Value</th>
+	 	</tr>
+	 	<tr>
+	 		<th>Start Time</th>
+	 		<th id="startTime"></th>
+	 	</tr>
+	 	<tr>
+	 		<th>Visibility Duration (sec)</th>
+	 		<th id="visDuration"></th>
+	 	</tr>
+	 	<tr>
+	 		<th>Starting Azimuth (degrees)</th>
+	 		<th id="startAz"></th>
+	 	</tr>
+	 	<tr>
+	 		<th>Starting Direction</th>
+	 		<th id="startDir"></th>
+	 	</tr>
+	 	<tr>
+	 		<th>Starting Elevation (degrees)</th>
+	 		<th id="startEl"></th>
+	 	</tr>
+	 	<tr>
+	 		<th>End Azimuth (degrees)</th>
+	 		<th id="endAz"></th>
+	 	</tr>
+	 	<tr>
+	 		<th>End Direction</th>
+	 		<th id="endDir"></th>
+	 	</tr>
+	 	<tr>
+	 		<th>End Elevation (degrees)</th>
+	 		<th id="endEl"></th>
+	 	</tr>
+	 </table>
 	
 </body>
 </html>

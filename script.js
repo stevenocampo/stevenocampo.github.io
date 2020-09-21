@@ -51,7 +51,7 @@ $(document).ready(function() {
 			
 			// Example url: "https://www.n2yo.com/rest/v1/satellite/visualpasses/25544/40.862137/-74.160393/40/10/60/&apiKey=C5PW35-XJ6FHB-GPUQKP-4JSL",
 
-			url: "https://www.n2yo.com/rest/v1/satellite/visualpasses/25544/" + latitude + "/" + longitude + "/40/10/60/&apiKey=C5PW35-XJ6FHB-GPUQKP-4JSL",
+			url: "https://www.n2yo.com/rest/v1/satellite/visualpasses/25544/" + latitude + "/" + longitude + "/0/10/60/&apiKey=C5PW35-XJ6FHB-GPUQKP-4JSL",
 			dataType: 'json',
 
 			success: function(result) {
@@ -109,6 +109,19 @@ $(document).ready(function() {
 				console.log(endUrlParam);
 				
 
+
+
+				// Display the Visualization Details into the front-end table
+				$("#startTime").html(startdateObj);
+				$("#visDuration").html(result.passes[0].duration);
+				$("#startAz").html(result.passes[0].startAz);
+				$("#startDir").html(result.passes[0].startAzCompass);
+				$("#startEl").html(result.passes[0].startEl);
+				$("#endAz").html(result.passes[0].endAz);
+				$("#endDir").html(result.passes[0].endAzCompass);
+				$("#endEl").html(result.passes[0].endEl);
+				
+				
 
 
 				ajaxCall2();
