@@ -37,6 +37,10 @@ $(document).ready(function() {
 		console.log(latitude);
 		console.log(longitude);
 
+
+		// Add a marker where the end-user selects on the map
+		var marker = L.marker([latitude, longitude]).addTo(mymap);
+
 	}
 
 	mymap.on('click', onMapClick);
@@ -59,6 +63,10 @@ $(document).ready(function() {
 				console.log("N2YO success");
 				console.log(result);
 
+
+
+				// Zoom out on the map by 9 to see the trajectory of the satellite over the selected area
+				mymap.setView([latitude, longitude], 4);
 
 
 
