@@ -155,10 +155,19 @@ $(document).ready(function() {
 
 
 
-
 					// Iterate through each pair of Lat/Long values and generate Marker on the map to show trajectory
-					for (var i = 0; i < $(result2).find("Latitude").length; i++) {
-						// console.log("test for loop");
+					for (let i = 0; i < $(result2).find("Latitude").length; i++) {
+
+						delayMarker(i);
+
+					}
+
+
+					// Wait 0.5 seconds before plotting each coordinate. This will show create an animation of the trajectory of the satellite
+					// Note: Since setTimeout executes immediately, the key logic here is to make the delay time parameter, multiply by the value of i, to increase the delay on each iteration
+					function delayMarker(i) {
+					  setTimeout(() => { 
+
 
 						// Empty array to hold one pair of Lat/Long values. This will be set to an empty array on each iteration
 						var latlongPair = [];
@@ -187,17 +196,15 @@ $(document).ready(function() {
 						latlongPair.push(longValue);
 
 
-
 						console.log(latlongPair);
 
-
-						// L.Marker adds a Marker to the map display
+	
 						var marker = L.marker(latlongPair).addTo(mymap);
+
+
+
+					  }, 500 * i);
 					}
-
-
-
-
 
 					// Example Marker
 					// var marker = L.marker([40.740477760389545, -73.9896583557129]).addTo(mymap);
