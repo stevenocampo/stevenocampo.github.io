@@ -4,6 +4,10 @@
 
 }
 
+body {
+	padding: 1%;
+}
+
 h2 {
 
 	margin-top: 30px;
@@ -16,11 +20,19 @@ table, th, td {
 
 }
 
+table.table {
+
+	width: 70%;
+	float: left;
+
+}
+
 
 img {
 
 	margin-top: 30px;
 	width: 25%; 
 	height: 25%;
+	float: right;
 
 }
