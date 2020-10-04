@@ -129,10 +129,9 @@ $(document).ready(function() {
 				
 
 
-
 				// Display the Visualization Details into the front-end table
 				$("#startTime").html(startdateObj);
-				$("#visDuration").html(result.passes[0].duration);
+				$("#visDuration").html(Math.round(result.passes[0].duration/60) + " minute(s)");
 				$("#startAz").html(result.passes[0].startAz);
 				$("#startDir").html(result.passes[0].startAzCompass);
 				$("#startEl").html(result.passes[0].startEl);
