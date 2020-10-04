@@ -4,7 +4,7 @@ $(document).ready(function() {
     // START LEAFLET.JS
     
     // Leaflet.js: "L.map" initializes a map object. The map's center coordinates and zoom setting are configured
-    var mymap = L.map('mapid').setView([40.756, -73.986], 13);
+    var mymap = L.map('mapid').setView([40.756, -73.986], 8);
 
 
     // Leaflet.js: "L.tileLayer" loads and displays the layer on the map
@@ -38,12 +38,18 @@ $(document).ready(function() {
 		console.log(longitude);
 
 
-		// Add a marker where the end-user selects on the map
-		var marker = L.marker([latitude, longitude]).addTo(mymap);
+		// Add a text bubble where the end-user clicks on the map, and display the coordinates of the selected location
+		var popup = L.popup();
+
+		popup
+			.setLatLng(e.latlng)
+			.setContent(e.latlng.toString())
+			.openOn(mymap);
 
 	}
 
 	mymap.on('click', onMapClick);
+
 
 
 	// When the HTML <button> is clicked, an AJAX call is made to initiate the API Request to the N2YO API using the coorinates that were stored
